@@ -27,7 +27,7 @@ sendEmailAboutDiskUsageIfNecessary(){
         echo $CURRENT_DISK_BEINGANALYZED
         #echo ${CURRENT_DATE_TIME}
 
-        if [ $PERCENTAGE_USED -ge $THRESHOLD_PRECENTAGE ]; then
+        if [ $PERCENTAGE_USED -gt $THRESHOLD_PRECENTAGE ]; then
             BODY="System is running out of space ${CURRENT_DISK_BEINGANALYZED} mounted as $MOUNTED_AS ($PERCENTAGE_USED%) on server ${HOST_NAME}, ${CURRENT_DATE_TIME}"
 
            echo $BODY
