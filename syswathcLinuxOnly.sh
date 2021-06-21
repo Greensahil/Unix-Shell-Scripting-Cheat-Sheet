@@ -59,9 +59,12 @@ print_freeAndTotalSwapSpace() {
 }
 
 
+
 print_numberOfActiveUsers(){
   ACTIVE_USERS_THRESHOLD=$1
   NUMBER_OF_ACTIVE_USERS=$(who | wc -l)
+  #Index starts at 0 so adding +1
+  NUMBER_OF_ACTIVE_USERS = $(( $NUMBER_OF_ACTIVE_USERS + 1))	
   if [ $NUMBER_OF_ACTIVE_USERS -ge $ACTIVE_USERS_THRESHOLD ]; then
      echo "User count is at ${NUMBER_OF_ACTIVE_USERS}"
      UPTIME=$(uptime | tr "," " " | cut -f6-8 -d" ")
@@ -69,6 +72,7 @@ print_numberOfActiveUsers(){
      echo "The system has been up for ${UPTIME} with a system load average of : ${SYSTEM_LOAD}"
   fi
 }
+
 
 sendEmail(){
  RECEIVER=$1
