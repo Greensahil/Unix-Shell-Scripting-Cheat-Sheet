@@ -1,3 +1,4 @@
+#! /bin/bash
 #chmod +x syswatch.sh -- to make this file executable
 
 #VARIABLES required
